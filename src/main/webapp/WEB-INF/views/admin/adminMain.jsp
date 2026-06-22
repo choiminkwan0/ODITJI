@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<%
+<%	
 	request.setAttribute("sidebarType", "admin");
 %>
 
@@ -21,7 +21,8 @@
 	href="${pageContext.request.contextPath}/css/admin.css">
 
 </head>
-<body>
+
+<body data-context-path="${pageContext.request.contextPath}">
 
 	<%@ include file="/WEB-INF/views/common/header.jsp"%>
 
@@ -31,34 +32,24 @@
 
 		<section class="content-area">
 
-			<h2 class="admin-title">
-				관리자 대시보드
-			</h2>
+			<h2 class="admin-title">관리자 대시보드</h2>
 
+			<!-- DASHBOARD GRID -->
 			<div class="dashboard-grid">
 
 				<div class="dashboard-card">
-
 					<h3>회원 수</h3>
-
-					<p>125명</p>
-
+					<p class="dashboard-value" data-type="member">125</p>
 				</div>
 
 				<div class="dashboard-card">
-
 					<h3>콘텐츠 수</h3>
-
-					<p>480개</p>
-
+					<p class="dashboard-value" data-type="content">480</p>
 				</div>
 
 				<div class="dashboard-card">
-
 					<h3>리뷰 수</h3>
-
-					<p>1,253개</p>
-
+					<p class="dashboard-value" data-type="review">1253</p>
 				</div>
 
 			</div>
@@ -68,6 +59,9 @@
 	</main>
 
 	<%@ include file="/WEB-INF/views/common/footer.jsp"%>
+
+	<!-- ADMIN JS -->
+	<script src="${pageContext.request.contextPath}/resources/js/admin.js" defer></script>
 
 </body>
 </html>

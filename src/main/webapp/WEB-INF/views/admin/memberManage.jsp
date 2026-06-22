@@ -21,7 +21,8 @@
 	href="${pageContext.request.contextPath}/css/admin.css">
 
 </head>
-<body>
+
+<body data-context-path="${pageContext.request.contextPath}">
 
 	<%@ include file="/WEB-INF/views/common/header.jsp"%>
 
@@ -31,33 +32,30 @@
 
 		<section class="content-area">
 
+			<!-- HEADER -->
 			<div class="admin-page-header">
 
-				<h2 class="admin-title">
-					회원 관리
-				</h2>
+				<h2 class="admin-title">회원 관리</h2>
 
-				<span class="admin-count">
-					총 125명
-				</span>
+				<span class="admin-count">총 125명</span>
 
 			</div>
 
+			<!-- SEARCH -->
 			<div class="admin-search">
 
 				<input type="text"
+					name="keyword"
 					placeholder="아이디 또는 닉네임 검색">
 
-				<button>
-					검색
-				</button>
+				<button type="button">검색</button>
 
 			</div>
 
+			<!-- TABLE -->
 			<table class="admin-table">
 
 				<thead>
-
 					<tr>
 						<th>번호</th>
 						<th>아이디</th>
@@ -67,7 +65,6 @@
 						<th>상태</th>
 						<th>관리</th>
 					</tr>
-
 				</thead>
 
 				<tbody>
@@ -80,11 +77,13 @@
 						<td>2026-06-01</td>
 						<td>정상</td>
 						<td>
-							<button class="edit-btn">
+							<button class="edit-btn"
+									data-url="/admin/member/edit?id=1">
 								수정
 							</button>
 
-							<button class="delete-btn">
+							<button class="delete-btn"
+									data-url="/admin/member/delete?id=1">
 								삭제
 							</button>
 						</td>
@@ -98,11 +97,13 @@
 						<td>2026-06-10</td>
 						<td>정상</td>
 						<td>
-							<button class="edit-btn">
+							<button class="edit-btn"
+									data-url="/admin/member/edit?id=2">
 								수정
 							</button>
 
-							<button class="delete-btn">
+							<button class="delete-btn"
+									data-url="/admin/member/delete?id=2">
 								삭제
 							</button>
 						</td>
@@ -117,6 +118,9 @@
 	</main>
 
 	<%@ include file="/WEB-INF/views/common/footer.jsp"%>
+
+	<!-- ADMIN JS -->
+	<script src="${pageContext.request.contextPath}/resources/js/admin.js" defer></script>
 
 </body>
 </html>

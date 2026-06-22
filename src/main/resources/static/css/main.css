@@ -4,7 +4,7 @@
 
 
 /* =========================
-   MAIN LAYOUT
+   MAIN PAGE WRAPPER
 ========================= */
 
 .main-container {
@@ -12,7 +12,6 @@
 	color: #fff;
 	min-height: 100vh;
 }
-
 
 /* =========================
    HERO SECTION
@@ -24,7 +23,10 @@
 	display: flex;
 	align-items: center;
 
-	padding: 0 100px;
+	padding: 0 30px;
+
+	max-width: 1400px;
+	margin: 0 auto;
 
 	background:
 		linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
@@ -46,7 +48,6 @@
 .hero-content h1 {
 	font-size: 52px;
 	font-weight: 700;
-
 	margin: 20px 0;
 	line-height: 1.2;
 }
@@ -56,7 +57,6 @@
 	line-height: 1.7;
 	font-size: 16px;
 }
-
 
 /* =========================
    OTT SECTION
@@ -92,61 +92,29 @@
 
 	color: #fff;
 	font-weight: 600;
-	letter-spacing: 0.5px;
 
-	transition: all 0.25s ease;
-	border: 1px solid transparent;
+	transition: 0.25s ease;
 }
 
 .ott-list a:hover {
 	background: #2f80ed;
 	transform: translateY(-4px) scale(1.03);
-	box-shadow: 0 12px 24px rgba(0,0,0,0.35);
-	border: 1px solid rgba(255,255,255,0.1);
 }
-
-
-/* =========================
-   CONTENT SECTION
-========================= */
-
-.content-section {
-	max-width: 1400px;
-	margin: 0 auto 60px;
-	padding: 0 30px;
-}
-
-.section-header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-
-	margin-bottom: 20px;
-}
-
-.section-header h3 {
-	font-size: 20px;
-}
-
-.section-header a {
-	color: #aaa;
-	font-size: 14px;
-}
-
 
 /* =========================
    CONTENT SLIDER
 ========================= */
+.content-section {
+	max-width: 1400px;
+	margin: 50px auto;
+	padding: 0 30px;
+}
 
 .content-slider {
 	display: flex;
 	gap: 20px;
-
 	overflow-x: auto;
-	overflow-y: hidden;
-
 	padding-bottom: 10px;
-
 	scroll-behavior: smooth;
 }
 
@@ -154,34 +122,105 @@
 	display: none;
 }
 
+.slider-wrapper {
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+
+/* =========================================================
+   SLIDER
+========================================================= */
+
+.content-slider {
+	display: flex;
+	gap: 20px;
+
+	overflow-x: auto;
+	scroll-behavior: smooth;
+
+	padding: 10px 50px;
+
+	scrollbar-width: none;
+}
+
+.content-slider::-webkit-scrollbar {
+	display: none;
+}
 
 /* =========================
-   CONTENT CARD
+   CONTENT CARD 
 ========================= */
+
+.content-link {
+	text-decoration: none;
+	color: inherit;
+}
 
 .content-card {
 	width: 180px;
-	flex: 0 0 auto;
-	transition: 0.2s;
+	border-radius: 10px;
+	overflow: hidden;
+
+	background: #1a1f27;
+
+	transition: transform 0.25s ease, box-shadow 0.25s ease;
+	cursor: pointer;
 }
 
 .content-card img {
 	width: 100%;
-	border-radius: 10px;
 	display: block;
 }
 
 .content-card p {
-	margin-top: 10px;
-	text-align: center;
+	padding: 10px;
 	font-size: 14px;
 	color: #ddd;
 }
 
 .content-card:hover {
-	transform: scale(1.05);
+	transform: scale(1.08);
+	box-shadow: 0 12px 30px rgba(0,0,0,0.6);
 }
 
+/* =========================================================
+   SLIDER BUTTON
+========================================================= */
+
+.slider-btn {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+
+	width: 42px;
+	height: 42px;
+
+	border: none;
+	border-radius: 50%;
+
+	background: rgba(0,0,0,0.6);
+	color: #fff;
+
+	font-size: 24px;
+	cursor: pointer;
+
+	z-index: 10;
+
+	transition: 0.2s;
+}
+
+.slider-btn:hover {
+	background: rgba(255,255,255,0.15);
+}
+
+.slider-btn.left {
+	left: -10px;
+}
+
+.slider-btn.right {
+	right: -10px;
+}
 
 /* =========================
    RESPONSIVE
@@ -190,8 +229,8 @@
 @media (max-width: 768px) {
 
 	.hero-section {
-		padding: 0 40px;
 		height: 400px;
+		padding: 0 20px;
 	}
 
 	.hero-content h1 {
@@ -203,8 +242,12 @@
 		height: 60px;
 	}
 
-	.content-slider {
-		gap: 12px;
+	.content-card {
+		width: 140px;
+	}
+
+	.slider-btn {
+		display: none; 
 	}
 }
 
@@ -309,6 +352,39 @@
 .input-group input:focus {
 	border-color: #4f8cff;
 	box-shadow: 0 0 0 3px rgba(79,140,255,0.25);
+}
+
+/* file */
+.file-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.file-box input[type="file"] {
+    display: none;
+}
+
+.file-btn {
+    padding: 10px 12px;
+
+    background: #21262d;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+
+    color: #fff;
+    font-size: 12px;
+
+    cursor: pointer;
+}
+
+.file-btn:hover {
+    background: #30363d;
+}
+
+.file-name {
+    font-size: 12px;
+    color: #8b949e;
 }
 
 /* =========================================================
@@ -517,23 +593,6 @@
 
 
 /* =========================
-   LAYOUT STRUCTURE
-========================= */
-
-.layout-container {
-    display: flex;
-}
-
-.content-container {
-    flex: 1;
-    padding: 60px 30px;
-    color: #fff;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-
-/* =========================
    LIST HEADER (COMMON)
 ========================= */
 
@@ -600,70 +659,6 @@
 
 
 /* =========================
-   CARD COMPONENT (CORE UI)
-========================= */
-
-.card {
-    display: flex;
-    gap: 16px;
-    align-items: center;
-
-    background: #151b22;
-    border: 1px solid #222a35;
-    border-radius: 14px;
-
-    padding: 14px;
-
-    transition: 0.2s ease;
-}
-
-.card:hover {
-    transform: translateY(-3px);
-    border-color: #4f7cff;
-}
-
-.card img {
-    width: 90px;
-    height: 130px;
-
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-
-/* =========================
-   CARD INFO AREA
-========================= */
-
-.card-info {
-    flex: 1;
-
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.card-title {
-    font-size: 16px;
-    font-weight: 600;
-}
-
-.card-meta {
-    font-size: 13px;
-    color: #9aa4af;
-
-    display: flex;
-    gap: 6px;
-    align-items: center;
-}
-
-.card-desc {
-    font-size: 13px;
-    color: #a9b1bb;
-}
-
-
-/* =========================
    CATEGORY FILTER (LIST ONLY)
 ========================= */
 
@@ -700,111 +695,6 @@
     color: #fff;
 }
 
-
-/* =========================
-   BADGE SYSTEM
-========================= */
-
-.ott-badge {
-    font-size: 12px;
-
-    padding: 4px 10px;
-
-    border-radius: 12px;
-
-    background: #1f2a36;
-    border: 1px solid #2a323d;
-
-    color: #c9d1d9;
-}
-
-
-/* =========================
-   WISH BUTTON SYSTEM (FIXED DUPLICATION)
-========================= */
-
-
-.wish-btn {
-    margin-left: auto;
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 38px;
-    height: 38px;
-
-    font-size: 18px;
-    line-height: 1;
-
-    cursor: pointer;
-
-    color: #9aa4af;
-
-    border-radius: 50%;
-
-    background: rgba(255, 255, 255, 0.04);
-    backdrop-filter: blur(6px);
-
-    border: 1px solid rgba(255, 255, 255, 0.08);
-
-    transition:
-        transform 0.25s cubic-bezier(.2,.9,.2,1),
-        box-shadow 0.25s ease,
-        background-color 0.25s ease,
-        color 0.25s ease;
-}
-
-.wish-btn:hover {
-    color: #ff4d6d;
-
-    background-color: rgba(255, 77, 109, 0.10);
-
-    transform: translateY(-2px) scale(1.12);
-
-    box-shadow: 0 6px 18px rgba(255, 77, 109, 0.25);
-}
-
-.wish-btn.active {
-    color: #ffffff;
-
-    background: linear-gradient(
-        135deg,
-        #ff4d6d,
-        #ff2d55
-    );
-
-    border-color: transparent;
-
-    transform: scale(1.18);
-
-    box-shadow:
-        0 10px 25px rgba(255, 45, 85, 0.35),
-        0 0 0 4px rgba(255, 77, 109, 0.15);
-}
-
-.wish-btn:active {
-    transform: scale(0.95);
-    box-shadow: 0 3px 10px rgba(0,0,0,0.25);
-}
-
-.wish-btn.active {
-    animation: wishPop 0.35s ease;
-}
-
-@keyframes wishPop {
-    0% {
-        transform: scale(0.7);
-    }
-    60% {
-        transform: scale(1.25);
-    }
-    100% {
-        transform: scale(1.18);
-    }
-}
-
-
 /* =========================
    EMPTY STATE
 ========================= */
@@ -825,22 +715,12 @@
 
 
 /* =========================================================
-   CONTENT DETAIL PAGE START
+   DETAIL PAGE (ODITJI FINAL STRUCTURE)
 ========================================================= */
 
 
 /* =========================
-   PAGE LAYOUT
-========================= */
-
-.detail-container {
-	flex: 1;
-	color: #fff;
-}
-
-
-/* =========================
-   TOP SECTION (HERO DETAIL)
+   TOP SECTION
 ========================= */
 
 .detail-top {
@@ -856,23 +736,19 @@
 	margin-bottom: 30px;
 }
 
-
 /* =========================
    POSTER
 ========================= */
 
 .detail-poster img {
 	width: 320px;
-
 	border-radius: 12px;
 	display: block;
-
-	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+	box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 }
 
-
 /* =========================
-   CONTENT INFO AREA
+   INFO AREA
 ========================= */
 
 .detail-info {
@@ -881,26 +757,6 @@
 	flex-direction: column;
 }
 
-
-/* TYPE BADGE */
-.content-type {
-	display: inline-block;
-	width: fit-content;
-
-	padding: 6px 14px;
-
-	background: #e50914;
-	color: #fff;
-
-	font-size: 13px;
-	font-weight: 600;
-
-	border-radius: 30px;
-
-	margin-bottom: 15px;
-}
-
-
 /* TITLE */
 .detail-title {
 	font-size: 42px;
@@ -908,91 +764,52 @@
 	margin-bottom: 15px;
 }
 
-
-/* META INFO */
+/* META */
 .content-meta {
 	display: flex;
 	align-items: center;
 	gap: 12px;
-
 	color: #b8c0cc;
 	font-size: 15px;
-
 	margin-bottom: 20px;
 }
-
-
-/* GENRE */
-.genre-list {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 10px;
-
-	margin-bottom: 25px;
-}
-
-.genre-list span {
-	padding: 8px 16px;
-
-	background: #202833;
-	color: #d8dee8;
-
-	border-radius: 30px;
-
-	font-size: 14px;
-}
-
 
 /* OVERVIEW */
 .content-overview {
 	font-size: 16px;
 	line-height: 1.8;
 	color: #d4d8de;
-
 	margin-bottom: 35px;
 }
 
-
 /* =========================
-   ACTION BUTTONS AREA
+   ACTION BUTTONS
 ========================= */
 
 .detail-actions {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 15px;
-
 	margin-bottom: 35px;
 }
 
-
-/* BASE BUTTON */
 .watch-btn,
 .review-btn,
 .wish-btn-detail {
 	height: 48px;
-
 	padding: 0 24px;
-
-	border: none;
 	border-radius: 8px;
 
 	font-size: 15px;
 	font-weight: 600;
 
 	cursor: pointer;
-
 	display: flex;
 	align-items: center;
 	justify-content: center;
-
-	text-decoration: none;
-
-	transition: all 0.25s ease;
 }
 
-
-/* WATCH BUTTON */
+/* WATCH */
 .watch-btn {
 	background: #e50914;
 	color: #fff;
@@ -1003,8 +820,7 @@
 	background: #ff1f2b;
 }
 
-
-/* REVIEW BUTTON */
+/* REVIEW */
 .review-btn {
 	background: #2b3440;
 	color: #fff;
@@ -1014,12 +830,10 @@
 	background: #394554;
 }
 
-
-/* WISH BUTTON (DETAIL ONLY) */
+/* WISH DETAIL */
 .wish-btn-detail {
 	background: transparent;
 	color: #ff4d67;
-
 	border: 1px solid #ff4d67;
 }
 
@@ -1027,7 +841,6 @@
 	background: #ff4d67;
 	color: #fff;
 }
-
 
 /* =========================
    OTT SECTION
@@ -1041,7 +854,6 @@
 .ott-label {
 	font-size: 14px;
 	color: #9ca7b5;
-
 	margin-bottom: 12px;
 }
 
@@ -1051,28 +863,14 @@
 	flex-wrap: wrap;
 }
 
-.ott-item {
-	padding: 8px 18px;
-
-	background: #0f1318;
-	border: 1px solid #303a46;
-	border-radius: 30px;
-
-	font-size: 14px;
-	font-weight: 600;
-}
-
-
 /* =========================
-   DETAIL SECTIONS (BOTTOM)
+   DETAIL SECTIONS
 ========================= */
 
 .detail-section {
 	background: #161b22;
-
 	border: 1px solid #242c37;
 	border-radius: 16px;
-
 	padding: 30px;
 	margin-bottom: 25px;
 }
@@ -1080,17 +878,14 @@
 .detail-section h2 {
 	font-size: 22px;
 	margin-bottom: 20px;
-
-	padding-bottom: 10px;
-
 	border-bottom: 1px solid #242c37;
+	padding-bottom: 10px;
 }
 
 .detail-section p {
 	line-height: 1.9;
 	color: #d4d8de;
 }
-
 
 /* =========================
    INFO TABLE
@@ -1104,19 +899,15 @@
 
 .detail-table div {
 	background: #0f1318;
-
 	border: 1px solid #242c37;
 	border-radius: 10px;
-
 	padding: 18px;
 }
 
 .detail-table strong {
 	display: block;
-
 	color: #8f9bab;
 	font-size: 13px;
-
 	margin-bottom: 8px;
 }
 
@@ -1125,13 +916,11 @@
 	font-size: 15px;
 }
 
-
 /* =========================
    RESPONSIVE
 ========================= */
 
 @media (max-width: 1024px) {
-
 	.detail-top {
 		flex-direction: column;
 	}
@@ -1147,7 +936,6 @@
 }
 
 @media (max-width: 768px) {
-
 	.detail-top {
 		padding: 25px;
 	}
@@ -1169,25 +957,8 @@
 
 
 /* =========================================================
-   CONTENT DETAIL PAGE END
-========================================================= */
-
-
-/* =========================================================
    MYPAGE PAGE START
 ========================================================= */
-
-
-/* =========================
-   PAGE LAYOUT
-========================= */
-
-.mypage-container {
-	max-width: 1400px;
-	margin: 40px auto;
-	padding: 0 30px;
-	color: #fff;
-}
 
 
 /* =========================
@@ -1201,34 +972,6 @@
 
 	padding: 25px;
 	margin-bottom: 30px;
-}
-
-
-/* =========================
-   SECTION HEADER (MYPAGE ONLY OVERRIDE)
-========================= */
-
-.mypage-section .section-header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-
-	margin-bottom: 20px;
-}
-
-.mypage-section .section-header h2 {
-	font-size: 24px;
-	font-weight: 700;
-}
-
-.mypage-section .section-header a {
-	color: #00c896;
-	font-size: 14px;
-	font-weight: 600;
-}
-
-.mypage-section .section-header a:hover {
-	opacity: 0.8;
 }
 
 

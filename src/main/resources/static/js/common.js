@@ -1,44 +1,82 @@
+/* =========================================================
+   ODITJI COMMON CONFIG
+========================================================= */
 
-/* =========================
-   CONFIG
-========================= */
 const ODITJI = {
     contextPath: document.body.dataset.contextPath || ""
 };
 
-/* =========================
+
+/* =========================================================
    WISHLIST MODULE
-========================= */
+========================================================= */
+
 const WishList = {
 
     init() {
-        document.addEventListener("click", this.handleClick);
+        document.addEventListener("click", this.handleClick.bind(this));
     },
 
     handleClick(e) {
 
         const btn = e.target.closest(".wish-btn");
-
         if (!btn) return;
 
         e.preventDefault();
         e.stopPropagation();
 
         const contentId = btn.dataset.contentId;
+        const nextState = !btn.classList.contains("active");
 
-        // 상태 토글
-        const isActive = btn.classList.toggle("active");
+        this.updateUI(btn, nextState);
 
-        btn.innerText = isActive ? "♥" : "♡";
+        this.sendWish(contentId, nextState)
+            .catch(() => this.updateUI(btn, !nextState));
+    },
 
-        console.log("찜 클릭:", contentId, "state:", isActive);
+    sendWish(contentId, state) {
+
+        // TODO: AJAX or fetch API 연결
+        return new Promise(resolve => {
+            console.log("찜:", contentId, state);
+            setTimeout(resolve, 200);
+        });
+    },
+
+    updateUI(btn, state) {
+        btn.classList.toggle("active", state);
+        btn.dataset.wished = state;
+        btn.innerText = state ? "♥" : "♡";
     }
 };
 
-/* =========================
+
+/* =========================================================
    MEMBER MODULE (VALIDATION ONLY)
-========================= */
+========================================================= */
+
 const Member = {
+
+    init() {
+        this.bindFileInput();
+    },
+
+    bindFileInput() {
+
+        const fileInput = document.getElementById("profileImage");
+        const fileName = document.querySelector(".file-name");
+
+        if (!fileInput || !fileName) return;
+
+        fileInput.addEventListener("change", () => {
+
+            if (fileInput.files.length > 0) {
+                fileName.textContent = fileInput.files[0].name;
+            } else {
+                fileName.textContent = "선택된 파일 없음";
+            }
+        });
+    },
 
     checkId() {
 
@@ -52,7 +90,9 @@ const Member = {
         fetch(`${ODITJI.contextPath}/member/checkId?memberId=${memberId}`)
             .then(res => res.text())
             .then(result => {
-                alert(result === "Y" ? "사용 가능한 아이디입니다." : "이미 사용 중인 아이디입니다.");
+                alert(result === "Y"
+                    ? "사용 가능한 아이디입니다."
+                    : "이미 사용 중인 아이디입니다.");
             });
     },
 
@@ -68,20 +108,20 @@ const Member = {
         fetch(`${ODITJI.contextPath}/member/checkNickname?nickname=${nickname}`)
             .then(res => res.text())
             .then(result => {
-                alert(result === "Y" ? "사용 가능한 닉네임입니다." : "이미 사용 중인 닉네임입니다.");
+                alert(result === "Y"
+                    ? "사용 가능한 닉네임입니다."
+                    : "이미 사용 중인 닉네임입니다.");
             });
     }
 };
 
 
-/* =========================
-   AUTH CORE MODULE
-========================= */
+/* =========================================================
+   AUTH MODULE (LOGIN / JOIN VALIDATION)
+========================================================= */
+
 const Auth = {
 
-    /* =========================
-       LOGIN VALIDATION
-    ========================= */
     validateLogin(form) {
 
         const memberId = form.memberId.value.trim();
@@ -98,9 +138,6 @@ const Auth = {
         return true;
     },
 
-    /* =========================
-       JOIN VALIDATION
-    ========================= */
     validateJoin(form) {
 
         const memberName = form.memberName.value.trim();
@@ -125,9 +162,6 @@ const Auth = {
         return true;
     },
 
-    /* =========================
-       UTIL
-    ========================= */
     isEmpty(value) {
         return !value || value.length === 0;
     },
@@ -138,9 +172,104 @@ const Auth = {
     }
 };
 
-/* =========================
+
+/* =========================================================
+   SLIDER MODULE (NETFLIX STYLE)
+========================================================= */
+
+const Slider = {
+
+    instances: [],
+
+    init(config) {
+
+        const slider = document.querySelector(config.slider);
+        const leftBtn = document.querySelector(config.leftBtn);
+        const rightBtn = document.querySelector(config.rightBtn);
+
+        if (!slider) return;
+
+        const state = {
+            slider,
+            scrollAmount: config.scrollAmount || 300,
+            autoScroll: config.autoScroll || false,
+            intervalTime: config.intervalTime || 3000,
+            timer: null
+        };
+
+        /* =========================
+           BUTTON CONTROL
+        ========================= */
+
+        if (leftBtn) {
+            leftBtn.addEventListener("click", () => {
+                slider.scrollBy({
+                    left: -state.scrollAmount,
+                    behavior: "smooth"
+                });
+            });
+        }
+
+        if (rightBtn) {
+            rightBtn.addEventListener("click", () => {
+                slider.scrollBy({
+                    left: state.scrollAmount,
+                    behavior: "smooth"
+                });
+            });
+        }
+
+        /* =========================
+           AUTO SLIDE
+        ========================= */
+
+        const start = () => {
+            state.timer = setInterval(() => {
+                slider.scrollBy({
+                    left: state.scrollAmount,
+                    behavior: "smooth"
+                });
+
+                if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
+                    slider.scrollTo({ left: 0, behavior: "smooth" });
+                }
+
+            }, state.intervalTime);
+        };
+
+        const stop = () => {
+            if (state.timer) clearInterval(state.timer);
+        };
+
+        if (state.autoScroll) {
+            start();
+
+            slider.addEventListener("mouseenter", stop);
+            slider.addEventListener("mouseleave", start);
+        }
+
+        this.instances.push(state);
+    }
+};
+
+
+/* =========================================================
    INIT
-========================= */
+========================================================= */
+
 document.addEventListener("DOMContentLoaded", () => {
+
     WishList.init();
+
+    Member.init();
+
+    Slider.init({
+        slider: "#contentSlider",
+        leftBtn: ".slider-btn.left",
+        rightBtn: ".slider-btn.right",
+        scrollAmount: 250,
+        autoScroll: true,
+        intervalTime: 3000
+    });
+
 });

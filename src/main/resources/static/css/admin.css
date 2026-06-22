@@ -1,5 +1,29 @@
+
 /* =========================================================
-   ADMIN COMMON
+   ADMIN DESIGN SYSTEM (REFACTORED)
+========================================================= */
+
+:root {
+	/* colors */
+	--admin-primary: #00c896;
+	--admin-primary-hover: #00b386;
+
+	--admin-bg: #161b22;
+	--admin-bg-dark: #1d242d;
+	--admin-border: #242c37;
+
+	--admin-text: #d1d5db;
+	--admin-muted: #9aa4af;
+
+	--admin-blue: #2563eb;
+	--admin-blue-hover: #1d4ed8;
+
+	--admin-red: #dc2626;
+	--admin-red-hover: #b91c1c;
+}
+
+/* =========================================================
+   LAYOUT
 ========================================================= */
 
 .content-area {
@@ -22,44 +46,48 @@
 }
 
 .admin-count {
-	color: #9aa4af;
+	color: var(--admin-muted);
 	font-size: 14px;
 }
 
-
 /* =========================================================
-   DASHBOARD
+   DASHBOARD (IMPROVED)
 ========================================================= */
 
 .dashboard-grid {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 	gap: 20px;
 }
 
 .dashboard-card {
-	background: #161b22;
-	border: 1px solid #242c37;
+	background: var(--admin-bg);
+	border: 1px solid var(--admin-border);
 	border-radius: 14px;
 	padding: 30px;
 	text-align: center;
+
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dashboard-card:hover {
+	transform: translateY(-3px);
 }
 
 .dashboard-card h3 {
-	color: #9aa4af;
+	color: var(--admin-muted);
 	font-size: 16px;
 	margin-bottom: 15px;
 }
 
 .dashboard-card p {
-	color: #00c896;
+	color: var(--admin-primary);
 	font-size: 32px;
 	font-weight: 700;
 }
 
-
 /* =========================================================
-   SEARCH
+   SEARCH (IMPROVED)
 ========================================================= */
 
 .admin-search {
@@ -69,140 +97,125 @@
 }
 
 .admin-search input {
-	width: 320px;
-	height: 45px;
+	max-width: 320px;
+	width: 100%;
 
+	height: 45px;
 	padding: 0 15px;
 
-	background: #161b22;
-	border: 1px solid #242c37;
+	background: var(--admin-bg);
+	border: 1px solid var(--admin-border);
 	border-radius: 10px;
 
 	color: #fff;
+	transition: border 0.2s;
 }
 
 .admin-search input:focus {
 	outline: none;
-	border-color: #00c896;
+	border-color: var(--admin-primary);
 }
 
 .admin-search button {
 	padding: 0 20px;
-
-	background: #00c896;
+	background: var(--admin-primary);
 	border: none;
 	border-radius: 10px;
 
 	color: #fff;
 	font-weight: 600;
-
 	cursor: pointer;
-	transition: 0.3s;
+
+	transition: 0.2s;
 }
 
 .admin-search button:hover {
-	opacity: 0.9;
+	background: var(--admin-primary-hover);
 }
 
-
 /* =========================================================
-   TABLE
+   TABLE (FIXED + STABLE)
 ========================================================= */
 
 .admin-table {
 	width: 100%;
+	border-collapse: separate;
+	border-spacing: 0;
 
-	border-collapse: collapse;
-
-	background: #161b22;
-	border: 1px solid #242c37;
+	background: var(--admin-bg);
+	border: 1px solid var(--admin-border);
 	border-radius: 14px;
-
 	overflow: hidden;
 }
 
 .admin-table th {
-	background: #1d242d;
-
+	background: var(--admin-bg-dark);
 	padding: 16px 12px;
 
 	color: #fff;
 	font-weight: 600;
-
 	text-align: center;
 }
 
 .admin-table td {
 	padding: 16px 12px;
-
 	text-align: center;
 
-	color: #d1d5db;
-
-	border-top: 1px solid #242c37;
+	color: var(--admin-text);
+	border-top: 1px solid var(--admin-border);
 }
 
-.admin-table tr:hover {
-	background: rgba(255,255,255,0.02);
+.admin-table tbody tr:hover {
+	background: rgba(255, 255, 255, 0.02);
 }
-
 
 /* =========================================================
-   BUTTON
+   BUTTON SYSTEM (REFACTORED)
 ========================================================= */
 
-.add-btn {
-	margin-left: 15px;
-
-	padding: 10px 16px;
-
-	background: #00c896;
+.btn {
 	border: none;
 	border-radius: 8px;
-
-	color: #fff;
-	font-weight: 600;
-
 	cursor: pointer;
+	font-weight: 600;
+	padding: 8px 14px;
+	transition: 0.2s;
+}
+
+/* ADD */
+.add-btn {
+	@extend .btn;
+	background: var(--admin-primary);
+	color: #fff;
+	margin-left: 15px;
 }
 
 .add-btn:hover {
-	opacity: 0.9;
+	background: var(--admin-primary-hover);
 }
 
+/* EDIT */
 .edit-btn {
-	padding: 8px 14px;
-
-	background: #2563eb;
-	border: none;
-	border-radius: 8px;
-
+	@extend .btn;
+	background: var(--admin-blue);
 	color: #fff;
-
-	cursor: pointer;
 }
 
 .edit-btn:hover {
-	background: #1d4ed8;
+	background: var(--admin-blue-hover);
 }
 
+/* DELETE */
 .delete-btn {
-	padding: 8px 14px;
-
-	background: #dc2626;
-	border: none;
-	border-radius: 8px;
-
+	@extend .btn;
+	background: var(--admin-red);
 	color: #fff;
-
-	cursor: pointer;
 	margin-left: 5px;
 }
 
 .delete-btn:hover {
-	background: #b91c1c;
+	background: var(--admin-red-hover);
 }
-
 
 /* =========================================================
    RESPONSIVE

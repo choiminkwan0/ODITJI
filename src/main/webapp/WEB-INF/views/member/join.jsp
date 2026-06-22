@@ -32,6 +32,7 @@
         <!-- FORM -->
         <form action="${pageContext.request.contextPath}/member/join"
               method="post"
+              enctype="multipart/form-data"
               onsubmit="return Auth.validateJoin(this)">
 
             <!-- NAME -->
@@ -86,6 +87,21 @@
             <div class="input-group">
                 <label>이메일</label>
                 <input type="email" name="email" placeholder="이메일 입력">
+            </div>
+
+            <!-- PROFILE IMAGE -->
+            <div class="input-group">
+                <label>프로필 이미지</label>
+
+                <div class="file-box">
+                    <input type="file" name="profileImage" id="profileImage" accept="image/*">
+
+                    <label for="profileImage" class="file-btn">
+                        파일 선택
+                    </label>
+
+                    <span class="file-name">선택된 파일 없음</span>
+                </div>
             </div>
 
             <!-- OTT -->

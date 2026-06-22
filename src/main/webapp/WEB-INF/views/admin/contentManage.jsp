@@ -21,7 +21,8 @@
 	href="${pageContext.request.contextPath}/css/admin.css">
 
 </head>
-<body>
+
+<body data-context-path="${pageContext.request.contextPath}">
 
 	<%@ include file="/WEB-INF/views/common/header.jsp"%>
 
@@ -31,19 +32,17 @@
 
 		<section class="content-area">
 
+			<!-- HEADER -->
 			<div class="admin-page-header">
 
-				<h2 class="admin-title">
-					콘텐츠 관리
-				</h2>
+				<h2 class="admin-title">콘텐츠 관리</h2>
 
-				<div>
+				<div class="admin-header-right">
 
-					<span class="admin-count">
-						총 480개
-					</span>
+					<span class="admin-count">총 480개</span>
 
-					<button class="add-btn">
+					<button class="add-btn"
+							data-url="/admin/content/write">
 						콘텐츠 등록
 					</button>
 
@@ -51,21 +50,23 @@
 
 			</div>
 
+			<!-- SEARCH -->
 			<div class="admin-search">
 
 				<input type="text"
+					name="keyword"
 					placeholder="콘텐츠명 검색">
 
-				<button>
+				<button type="button">
 					검색
 				</button>
 
 			</div>
 
+			<!-- TABLE -->
 			<table class="admin-table">
 
 				<thead>
-
 					<tr>
 						<th>번호</th>
 						<th>제목</th>
@@ -75,7 +76,6 @@
 						<th>공개일</th>
 						<th>관리</th>
 					</tr>
-
 				</thead>
 
 				<tbody>
@@ -88,11 +88,13 @@
 						<td>Netflix</td>
 						<td>2025-09-12</td>
 						<td>
-							<button class="edit-btn">
+							<button class="edit-btn"
+									data-url="/admin/content/edit?id=1">
 								수정
 							</button>
 
-							<button class="delete-btn">
+							<button class="delete-btn"
+									data-url="/admin/content/delete?id=1">
 								삭제
 							</button>
 						</td>
@@ -106,11 +108,13 @@
 						<td>Disney+</td>
 						<td>2023-08-09</td>
 						<td>
-							<button class="edit-btn">
+							<button class="edit-btn"
+									data-url="/admin/content/edit?id=2">
 								수정
 							</button>
 
-							<button class="delete-btn">
+							<button class="delete-btn"
+									data-url="/admin/content/delete?id=2">
 								삭제
 							</button>
 						</td>
@@ -124,11 +128,13 @@
 						<td>Netflix</td>
 						<td>2022-12-30</td>
 						<td>
-							<button class="edit-btn">
+							<button class="edit-btn"
+									data-url="/admin/content/edit?id=3">
 								수정
 							</button>
 
-							<button class="delete-btn">
+							<button class="delete-btn"
+									data-url="/admin/content/delete?id=3">
 								삭제
 							</button>
 						</td>
@@ -143,6 +149,9 @@
 	</main>
 
 	<%@ include file="/WEB-INF/views/common/footer.jsp"%>
+
+	<!-- ADMIN JS -->
+	<script src="${pageContext.request.contextPath}/resources/js/admin.js" defer></script>
 
 </body>
 </html>
