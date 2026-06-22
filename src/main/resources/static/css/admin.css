@@ -1,0 +1,228 @@
+/* =========================================================
+   ADMIN COMMON
+========================================================= */
+
+.content-area {
+	flex: 1;
+	min-width: 0;
+}
+
+.admin-title {
+	color: #fff;
+	font-size: 32px;
+	font-weight: 700;
+	margin-bottom: 30px;
+}
+
+.admin-page-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 25px;
+}
+
+.admin-count {
+	color: #9aa4af;
+	font-size: 14px;
+}
+
+
+/* =========================================================
+   DASHBOARD
+========================================================= */
+
+.dashboard-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px;
+}
+
+.dashboard-card {
+	background: #161b22;
+	border: 1px solid #242c37;
+	border-radius: 14px;
+	padding: 30px;
+	text-align: center;
+}
+
+.dashboard-card h3 {
+	color: #9aa4af;
+	font-size: 16px;
+	margin-bottom: 15px;
+}
+
+.dashboard-card p {
+	color: #00c896;
+	font-size: 32px;
+	font-weight: 700;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.admin-search {
+	display: flex;
+	gap: 10px;
+	margin-bottom: 25px;
+}
+
+.admin-search input {
+	width: 320px;
+	height: 45px;
+
+	padding: 0 15px;
+
+	background: #161b22;
+	border: 1px solid #242c37;
+	border-radius: 10px;
+
+	color: #fff;
+}
+
+.admin-search input:focus {
+	outline: none;
+	border-color: #00c896;
+}
+
+.admin-search button {
+	padding: 0 20px;
+
+	background: #00c896;
+	border: none;
+	border-radius: 10px;
+
+	color: #fff;
+	font-weight: 600;
+
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.admin-search button:hover {
+	opacity: 0.9;
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.admin-table {
+	width: 100%;
+
+	border-collapse: collapse;
+
+	background: #161b22;
+	border: 1px solid #242c37;
+	border-radius: 14px;
+
+	overflow: hidden;
+}
+
+.admin-table th {
+	background: #1d242d;
+
+	padding: 16px 12px;
+
+	color: #fff;
+	font-weight: 600;
+
+	text-align: center;
+}
+
+.admin-table td {
+	padding: 16px 12px;
+
+	text-align: center;
+
+	color: #d1d5db;
+
+	border-top: 1px solid #242c37;
+}
+
+.admin-table tr:hover {
+	background: rgba(255,255,255,0.02);
+}
+
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.add-btn {
+	margin-left: 15px;
+
+	padding: 10px 16px;
+
+	background: #00c896;
+	border: none;
+	border-radius: 8px;
+
+	color: #fff;
+	font-weight: 600;
+
+	cursor: pointer;
+}
+
+.add-btn:hover {
+	opacity: 0.9;
+}
+
+.edit-btn {
+	padding: 8px 14px;
+
+	background: #2563eb;
+	border: none;
+	border-radius: 8px;
+
+	color: #fff;
+
+	cursor: pointer;
+}
+
+.edit-btn:hover {
+	background: #1d4ed8;
+}
+
+.delete-btn {
+	padding: 8px 14px;
+
+	background: #dc2626;
+	border: none;
+	border-radius: 8px;
+
+	color: #fff;
+
+	cursor: pointer;
+	margin-left: 5px;
+}
+
+.delete-btn:hover {
+	background: #b91c1c;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1024px) {
+
+	.dashboard-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.admin-search {
+		flex-direction: column;
+	}
+
+	.admin-search input {
+		width: 100%;
+	}
+
+	.admin-table {
+		font-size: 13px;
+	}
+}

@@ -1,0 +1,33 @@
+/* =========================
+   Reset & Base
+========================= */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html, body {
+	background: #0f1318;
+	color: #e5e7eb;
+	font-family: Arial, "Noto Sans KR", sans-serif;
+	line-height: 1.4;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+ul {
+	list-style: none;
+}
+
+button {
+	font-family: inherit;
+}
+
+.hidden {
+	display: none;
+}
