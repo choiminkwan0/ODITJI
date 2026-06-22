@@ -16,60 +16,73 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/main.css">
 
+<script defer src="${pageContext.request.contextPath}/js/common.js"></script>
 </head>
-<body>
 
-	<%@ include file="/WEB-INF/views/common/header.jsp"%>
+<body data-context-path="${pageContext.request.contextPath}">
 
-	<main class="login-container">
+<%@ include file="/WEB-INF/views/common/header.jsp"%>
 
-		<div class="login-box">
+<main class="login-container">
 
-			<h2>로그인</h2>
+	<div class="login-box">
 
-			<form action="${pageContext.request.contextPath}/member/login" method="post">
+		<h2>로그인</h2>
 
-				<div class="input-group">
-					<label for="memberId">아이디</label>
-					<input type="text" id="memberId" name="memberId" placeholder="아이디 입력">
-				</div>
+		<form action="${pageContext.request.contextPath}/member/login"
+			  method="post"
+			  onsubmit="return Auth.validateLogin(this)">
 
-				<div class="input-group">
-					<label for="memberPwd">비밀번호</label>
-					<input type="password" id="memberPwd" name="memberPwd" placeholder="비밀번호 입력">
-				</div>
+			<!-- ID -->
+			<div class="input-group">
+				<label for="memberId">아이디</label>
+				<input type="text"
+					   id="memberId"
+					   name="memberId"
+					   placeholder="아이디 입력">
+			</div>
 
-				<button type="submit" class="login-btn">
-					로그인
-				</button>
+			<!-- PASSWORD -->
+			<div class="input-group">
+				<label for="memberPw">비밀번호</label>
+				<input type="password"
+					   id="memberPw"
+					   name="memberPw"
+					   placeholder="비밀번호 입력">
+			</div>
 
-			</form>
-
-			<button type="button" class="kakao-btn">
-				카카오 로그인
+			<!-- LOGIN BTN -->
+			<button type="submit" class="login-btn">
+				로그인
 			</button>
 
-			<div class="find-area">
-				<a href="#">아이디 찾기</a>
-				<span>|</span>
-				<a href="#">비밀번호 찾기</a>
-			</div>
+		</form>
 
-			<div class="join-area">
+		<!-- KAKAO -->
+		<button type="button" class="kakao-btn">
+			카카오 로그인
+		</button>
 
-				<p>아직 회원이 아니신가요?</p>
-
-				<a href="${pageContext.request.contextPath}/member/join">
-					회원가입
-				</a>
-
-			</div>
-
+		<!-- FIND AREA -->
+		<div class="find-area">
+			<a href="#">아이디 찾기</a>
+			<span>|</span>
+			<a href="#">비밀번호 찾기</a>
 		</div>
 
-	</main>
+		<!-- JOIN AREA -->
+		<div class="join-area">
+			<p>아직 회원이 아니신가요?</p>
+			<a href="${pageContext.request.contextPath}/member/join">
+				회원가입
+			</a>
+		</div>
 
-	<%@ include file="/WEB-INF/views/common/footer.jsp"%>
+	</div>
+
+</main>
+
+<%@ include file="/WEB-INF/views/common/footer.jsp"%>
 
 </body>
 </html>

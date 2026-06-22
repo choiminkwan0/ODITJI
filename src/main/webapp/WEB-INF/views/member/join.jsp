@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html>
@@ -8,94 +8,145 @@
 <title>회원가입 | ODITJI</title>
 
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/common.css">
+    href="${pageContext.request.contextPath}/css/common.css">
 
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/layout.css">
+    href="${pageContext.request.contextPath}/css/layout.css">
 
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/main.css">
+    href="${pageContext.request.contextPath}/css/main.css">
 
+<script defer src="${pageContext.request.contextPath}/js/common.js"></script>
 </head>
-<body>
 
-	<%@ include file="/WEB-INF/views/common/header.jsp"%>
+<body data-context-path="${pageContext.request.contextPath}">
 
-	<div class="join-container">
+<%@ include file="/WEB-INF/views/common/header.jsp"%>
 
-		<div class="join-box">
+<div class="join-container">
 
-			<h2>회원가입</h2>
+    <div class="join-box">
 
-			<form action="${pageContext.request.contextPath}/member/join" method="post">
+        <h2>회원가입</h2>
 
-				<div class="input-group">
-					<label>아이디</label>
-					<input type="text" name="memberId" placeholder="아이디 입력">
-				</div>
+        <!-- FORM -->
+        <form action="${pageContext.request.contextPath}/member/join"
+              method="post"
+              onsubmit="return Auth.validateJoin(this)">
 
-				<div class="input-group">
-					<label>비밀번호</label>
-					<input type="password" name="memberPwd" placeholder="비밀번호 입력">
-				</div>
+            <!-- NAME -->
+            <div class="input-group">
+                <label>이름</label>
+                <input type="text" name="memberName" placeholder="이름 입력">
+            </div>
 
-				<div class="input-group">
-					<label>비밀번호 확인</label>
-					<input type="password" name="memberPwdCheck" placeholder="비밀번호 재입력">
-				</div>
+            <!-- ID -->
+            <div class="input-group">
+                <label>아이디</label>
 
-				<div class="input-group">
-					<label>닉네임</label>
-					<input type="text" name="nickname" placeholder="닉네임 입력">
-				</div>
+                <div class="dup-box">
+                    <input type="text" name="memberId" id="memberId" placeholder="아이디 입력">
+                    <button type="button" class="dup-btn" onclick="Member.checkId()">
+                        중복확인
+                    </button>
+                </div>
+            </div>
 
-				<div class="input-group">
-					<label>연락처</label>
-					<input type="text" name="phone" placeholder="010-0000-0000">
-				</div>
+            <!-- PASSWORD -->
+            <div class="input-group">
+                <label>비밀번호</label>
+                <input type="password" name="memberPw" placeholder="비밀번호 입력">
+            </div>
 
-				<div class="input-group">
-					<label>이메일</label>
-					<input type="email" name="email" placeholder="example@email.com">
-				</div>
+            <!-- PASSWORD CHECK -->
+            <div class="input-group">
+                <label>비밀번호 확인</label>
+                <input type="password" name="memberPwCheck" placeholder="비밀번호 재입력">
+            </div>
 
-				<div class="input-group">
-					<label>사용 중인 OTT</label>
+            <!-- NICKNAME -->
+            <div class="input-group">
+                <label>닉네임</label>
 
-					<div class="ott-check-group">
+                <div class="dup-box">
+                    <input type="text" name="nickname" id="nickname" placeholder="닉네임 입력">
+                    <button type="button" class="dup-btn" onclick="Member.checkNickname()">
+                        중복확인
+                    </button>
+                </div>
+            </div>
 
-						<label><input type="checkbox" name="ottList" value="NETFLIX"> NETFLIX</label>
-						<label><input type="checkbox" name="ottList" value="DISNEY"> Disney+</label>
-						<label><input type="checkbox" name="ottList" value="TVING"> TVING</label>
-						<label><input type="checkbox" name="ottList" value="WAVVE"> wavve</label>
-						<label><input type="checkbox" name="ottList" value="WATCHA"> WATCHA</label>
-						<label><input type="checkbox" name="ottList" value="COUPANG"> 쿠팡플레이</label>
+            <!-- PHONE -->
+            <div class="input-group">
+                <label>연락처</label>
+                <input type="text" name="phone" placeholder="연락처 입력">
+            </div>
 
-					</div>
+            <!-- EMAIL -->
+            <div class="input-group">
+                <label>이메일</label>
+                <input type="email" name="email" placeholder="이메일 입력">
+            </div>
 
-				</div>
+            <!-- OTT -->
+            <div class="input-group">
+                <label>사용 중인 OTT</label>
 
-				<button type="submit" class="join-btn">
-					회원가입
-				</button>
+                <div class="ott-check-group">
 
-			</form>
+                    <label class="ott-item">
+                        <input type="checkbox" name="ottList" value="NETFLIX">
+                        NETFLIX
+                    </label>
 
-			<div class="login-area">
+                    <label class="ott-item">
+                        <input type="checkbox" name="ottList" value="DISNEY">
+                        Disney+
+                    </label>
 
-				<p>이미 회원이신가요?</p>
+                    <label class="ott-item">
+                        <input type="checkbox" name="ottList" value="TVING">
+                        TVING
+                    </label>
 
-				<a href="${pageContext.request.contextPath}/member/login">
-					로그인
-				</a>
+                    <label class="ott-item">
+                        <input type="checkbox" name="ottList" value="WAVVE">
+                        WAVVE
+                    </label>
 
-			</div>
+                    <label class="ott-item">
+                        <input type="checkbox" name="ottList" value="WATCHA">
+                        WATCHA
+                    </label>
 
-		</div>
+                    <label class="ott-item">
+                        <input type="checkbox" name="ottList" value="COUPANG">
+                        COUPANG PLAY
+                    </label>
 
-	</div>
+                </div>
+            </div>
 
-	<%@ include file="/WEB-INF/views/common/footer.jsp"%>
+            <!-- SUBMIT -->
+            <button type="submit" class="join-btn">
+                회원가입
+            </button>
+
+        </form>
+
+        <!-- LOGIN LINK -->
+        <div class="login-area">
+            <p>이미 회원이신가요?</p>
+            <a href="${pageContext.request.contextPath}/member/login">
+                로그인
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+<%@ include file="/WEB-INF/views/common/footer.jsp"%>
 
 </body>
 </html>
