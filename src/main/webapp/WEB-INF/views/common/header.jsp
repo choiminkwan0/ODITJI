@@ -14,9 +14,9 @@
 		<nav class="nav-menu">
 			<ul>
 				<li><a href="${pageContext.request.contextPath}/">홈</a></li>
-				<li><a href="${pageContext.request.contextPath}/content/contentList">전체</a></li>
-				<li><a href="${pageContext.request.contextPath}/content/contentList?type=movie">영화</a></li>
-				<li><a href="${pageContext.request.contextPath}/content/contentList?type=series">시리즈</a></li>
+				<li><a href="${pageContext.request.contextPath}/content/list">전체</a></li>
+				<li><a href="${pageContext.request.contextPath}/content/list?type=movie">영화</a></li>
+				<li><a href="${pageContext.request.contextPath}/content/list?type=series">시리즈</a></li>
 			</ul>
 		</nav>
 

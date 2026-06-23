@@ -20,6 +20,8 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/main.css">
 
+<script defer src="${pageContext.request.contextPath}/js/common.js"></script>
+
 </head>
 <body>
 
@@ -79,7 +81,7 @@
 							▶ 지금 시청하기
 						</button>
 
-						<button class="wish-btn-detail">
+						<button class="wish-btn">
 							♡ 찜하기
 						</button>
 

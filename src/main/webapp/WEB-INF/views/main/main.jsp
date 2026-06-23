@@ -63,7 +63,7 @@
 
 		<div class="section-header">
 			<h3>지금 많이 찾는 콘텐츠</h3>
-			<a href="${pageContext.request.contextPath}/content/contentList">더보기 &gt;</a>
+			<a href="${pageContext.request.contextPath}/content/list">더보기 &gt;</a>
 		</div>
 
 		<!-- slider wrapper (넷플릭스 구조) -->
@@ -74,42 +74,42 @@
 			<div class="content-slider" id="contentSlider">
 
 				<!-- ===== CONTENT CARD (DB 붙일 자리) ===== -->
-				<a href="${pageContext.request.contextPath}/content/contentDetail" class="content-link">
+				<a href="${pageContext.request.contextPath}/content/detail" class="content-link">
 					<div class="content-card">
 						<img src="https://placehold.co/180x260" alt="콘텐츠">
 						<p>눈물의 여왕</p>
 					</div>
 				</a>
 
-				<a href="${pageContext.request.contextPath}/content/contentDetail" class="content-link">
+				<a href="${pageContext.request.contextPath}/content/detail" class="content-link">
 					<div class="content-card">
 						<img src="https://placehold.co/180x260" alt="콘텐츠">
 						<p>선재 업고 튀어</p>
 					</div>
 				</a>
 
-				<a href="${pageContext.request.contextPath}/content/contentDetail" class="content-link">
+				<a href="${pageContext.request.contextPath}/content/detail" class="content-link">
 					<div class="content-card">
 						<img src="https://placehold.co/180x260" alt="콘텐츠">
 						<p>파묘</p>
 					</div>
 				</a>
 
-				<a href="${pageContext.request.contextPath}/content/contentDetail" class="content-link">
+				<a href="${pageContext.request.contextPath}/content/detail" class="content-link">
 					<div class="content-card">
 						<img src="https://placehold.co/180x260" alt="콘텐츠">
 						<p>범죄도시4</p>
 					</div>
 				</a>
 
-				<a href="${pageContext.request.contextPath}/content/contentDetail" class="content-link">
+				<a href="${pageContext.request.contextPath}/content/detail" class="content-link">
 					<div class="content-card">
 						<img src="https://placehold.co/180x260" alt="콘텐츠">
 						<p>더 글로리</p>
 					</div>
 				</a>
 
-				<a href="${pageContext.request.contextPath}/content/contentDetail" class="content-link">
+				<a href="${pageContext.request.contextPath}/content/detail" class="content-link">
 					<div class="content-card">
 						<img src="https://placehold.co/180x260" alt="콘텐츠">
 						<p>오징어 게임</p>

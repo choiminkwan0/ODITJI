@@ -16,6 +16,9 @@
 <link rel="stylesheet"
     href="${pageContext.request.contextPath}/css/main.css">
 
+<script defer src="${pageContext.request.contextPath}/js/common.js"></script>
+<script defer src="${pageContext.request.contextPath}/js/search.js"></script>
+
 </head>
 
 <body>
@@ -67,7 +70,7 @@
                     for (Object item : list) {
             %>
 
-            <a href="${pageContext.request.contextPath}/content/contentDetail"
+            <a href="${pageContext.request.contextPath}/content/detail"
                class="list-item">
 
                 <div class="card">
@@ -96,7 +99,7 @@
                         type="button"
                         class="wish-btn"
                         data-content-id="999">
-                        ♡
+                        ♡ 찜하기
                     </button>
 
                 </div>
@@ -123,9 +126,6 @@
 </main>
 
 <%@ include file="/WEB-INF/views/common/footer.jsp"%>
-
-<!-- 공통 JS -->
-<script src="${pageContext.request.contextPath}/js/common.js"></script>
 
 </body>
 </html>

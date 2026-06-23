@@ -37,7 +37,7 @@
 
     <div class="sidebar-section" data-filter="genre">
         <h4>장르</h4>
-		
+		<label><input type="checkbox" value="ALL"> 전체</label>
         <label><input type="checkbox" value="ACTION"> 액션</label>
         <label><input type="checkbox" value="COMEDY"> 코미디</label>
         <label><input type="checkbox" value="THRILLER"> 스릴러</label>

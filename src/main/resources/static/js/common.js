@@ -46,7 +46,7 @@ const WishList = {
     updateUI(btn, state) {
         btn.classList.toggle("active", state);
         btn.dataset.wished = state;
-        btn.innerText = state ? "♥" : "♡";
+        btn.innerText = state ? "♥ 찜완료" : "♡ 찜하기";
     }
 };
 
