@@ -922,6 +922,26 @@
 	justify-content: center;
 }
 
+.cancel-btn,
+.submit-btn {
+    width: 120px;
+    height: 48px;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+}
+
 /* WATCH */
 .watch-btn {
 	background: #e50914;
@@ -941,6 +961,26 @@
 
 .review-btn:hover {
 	background: #394554;
+}
+
+/* CANCEL */
+.cancel-btn {
+    background: #444;
+    color: #fff;
+}
+
+.cancel-btn:hover {
+    background: #555;
+}
+
+/* SUBMIT */
+.submit-btn {
+    background: #ff4d67;
+    color: #fff;
+}
+
+.submit-btn:hover {
+    background: #ff3352;
 }
 
 .wish-btn {

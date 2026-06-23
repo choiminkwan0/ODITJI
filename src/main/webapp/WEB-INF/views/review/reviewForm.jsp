@@ -73,12 +73,13 @@
 				<div class="review-btn-area">
 
 					<a href="${pageContext.request.contextPath}/review/list"
-						class="cancel-btn">
+					class="cancel-btn">
 						취소
 					</a>
 
-					<button type="submit"
-						class="submit-btn">
+					<button type="button"
+							class="submit-btn"
+							onclick="location.href='${pageContext.request.contextPath}/review/list'">
 						등록
 					</button>
 
