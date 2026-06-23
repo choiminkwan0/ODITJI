@@ -416,9 +416,9 @@
 ========================= */
 
 .mypage-container {
-	max-width: 1400px;
-	margin: 40px auto;
-	padding: 0 30px;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 40px 24px;
 	color: #fff;
 }
 

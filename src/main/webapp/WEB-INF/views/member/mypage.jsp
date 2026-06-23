@@ -34,29 +34,51 @@
 
 			<div class="member-info">
 
-				<div class="info-row">
-					<span class="label">아이디</span>
-					<span class="value">${loginMember.memberId}</span>
+				<!-- 프로필 -->
+				<div class="profile-area">
+					<img
+						src="${pageContext.request.contextPath}/images/profile.svg"
+						alt="프로필 이미지">
 				</div>
 
-				<div class="info-row">
-					<span class="label">닉네임</span>
-					<span class="value">${loginMember.memberNickname}</span>
-				</div>
+				<!-- 회원정보 -->
+				<div class="member-detail">
 
-				<div class="info-row">
-					<span class="label">이메일</span>
-					<span class="value">${loginMember.memberEmail}</span>
-				</div>
+					<div class="info-row">
+						<span class="label">아이디</span>
+						<span class="value">${loginMember.memberId}</span>
+					</div>
 
-				<div class="mypage-btn-area">
-					<button type="button" id="memberUpdateBtn">
-						회원정보 수정
-					</button>
+					<div class="info-row">
+						<span class="label">닉네임</span>
+						<span class="value">${loginMember.memberNickname}</span>
+					</div>
 
-					<button type="button" id="ottUpdateBtn">
-						OTT 정보 수정
-					</button>
+					<div class="info-row">
+						<span class="label">이메일</span>
+						<span class="value">${loginMember.memberEmail}</span>
+					</div>
+
+					<div class="info-row">
+						<span class="label">가입일</span>
+						<span class="value">${loginMember.enrollDate}</span>
+					</div>
+
+					<div class="info-row">
+						<span class="label">전화번호</span>
+						<span class="value">${loginMember.memberPhone}</span>
+					</div>
+
+					<div class="mypage-btn-area">
+						<button type="button" id="memberUpdateBtn">
+							회원정보 수정
+						</button>
+
+						<button type="button" id="ottUpdateBtn">
+							OTT 정보 수정
+						</button>
+					</div>
+
 				</div>
 
 			</div>
@@ -101,49 +123,93 @@
 
 			<div class="favorite-content-grid">
 
-				<div class="content-card">
+				<!-- ===== CARD ===== -->
+				<a href="${pageContext.request.contextPath}/content/detail" class="content-link">
+					<div class="content-card">
 
-					<a href="#">
-						<img src="https://placehold.co/250x350"
-							alt="포스터">
-					</a>
+						<div class="poster">
+							<img src="https://placehold.co/180x260" alt="포스터">
+						</div>
 
-					<h3>콘텐츠 제목</h3>
+						<div class="card-info">
+							<div class="title">콘텐츠 제목</div>
+						</div>
 
-				</div>
+						<div class="hover-overlay">
+							<div class="hover-desc">
+								간단 설명 영역 (줄거리 / 장르 / API 데이터)
+							</div>
+							<div class="meta">Netflix · 2024</div>
+						</div>
 
-				<div class="content-card">
+					</div>
+				</a>
 
-					<a href="#">
-						<img src="https://placehold.co/250x350"
-							alt="포스터">
-					</a>
+				<!-- ===== CARD ===== -->
+				<a href="${pageContext.request.contextPath}/content/detail" class="content-link">
+					<div class="content-card">
 
-					<h3>콘텐츠 제목</h3>
+						<div class="poster">
+							<img src="https://placehold.co/180x260" alt="포스터">
+						</div>
 
-				</div>
+						<div class="card-info">
+							<div class="title">콘텐츠 제목</div>
+						</div>
 
-				<div class="content-card">
+						<div class="hover-overlay">
+							<div class="hover-desc">
+								간단 설명 영역 (줄거리 / 장르 / API 데이터)
+							</div>
+							<div class="meta">Netflix · 2024</div>
+						</div>
 
-					<a href="#">
-						<img src="https://placehold.co/250x350"
-							alt="포스터">
-					</a>
+					</div>
+				</a>
 
-					<h3>콘텐츠 제목</h3>
+				<!-- ===== CARD ===== -->
+				<a href="${pageContext.request.contextPath}/content/detail" class="content-link">
+					<div class="content-card">
 
-				</div>
+						<div class="poster">
+							<img src="https://placehold.co/180x260" alt="포스터">
+						</div>
 
-				<div class="content-card">
+						<div class="card-info">
+							<div class="title">콘텐츠 제목</div>
+						</div>
 
-					<a href="#">
-						<img src="https://placehold.co/250x350"
-							alt="포스터">
-					</a>
+						<div class="hover-overlay">
+							<div class="hover-desc">
+								간단 설명 영역 (줄거리 / 장르 / API 데이터)
+							</div>
+							<div class="meta">Netflix · 2024</div>
+						</div>
 
-					<h3>콘텐츠 제목</h3>
+					</div>
+				</a>
 
-				</div>
+				<!-- ===== CARD ===== -->
+				<a href="${pageContext.request.contextPath}/content/detail" class="content-link">
+					<div class="content-card">
+
+						<div class="poster">
+							<img src="https://placehold.co/180x260" alt="포스터">
+						</div>
+
+						<div class="card-info">
+							<div class="title">콘텐츠 제목</div>
+						</div>
+
+						<div class="hover-overlay">
+							<div class="hover-desc">
+								간단 설명 영역 (줄거리 / 장르 / API 데이터)
+							</div>
+							<div class="meta">Netflix · 2024</div>
+						</div>
+
+					</div>
+				</a>
 
 			</div>
 

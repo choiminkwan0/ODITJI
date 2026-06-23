@@ -36,10 +36,9 @@
 
 .card-info {
     flex: 1;
-
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 5px;
 }
 
 .card-title {
@@ -117,18 +116,19 @@
 	margin-bottom: 20px;
 }
 
-.section-header h3 {
+.section-header h2 {
 	font-size: 20px;
+	font-weight: 700;
 }
 
 .section-header a {
+	font-size: 13px;
 	color: #aaa;
 	text-decoration: none;
-	transition: 0.2s;
 }
 
 .section-header a:hover {
-	color: #fff;
+	color: #00d9b5;
 }
 
 
@@ -266,25 +266,27 @@
 ========================= */
 
 .content-link {
+	flex: 0 0 auto;
 	text-decoration: none;
 	color: inherit;
 }
 
 .content-card {
 	width: 180px;
-	flex: 0 0 auto; /* .content-slider가 flex라서 카드가 안 찌그러지게 추가 */
-	border-radius: 10px;
+	flex-shrink: 0;
+
+	position: relative;
 	overflow: hidden;
-
-	background: #1a1f27;
-
-	transition: transform 0.25s ease, box-shadow 0.25s ease;
-	cursor: pointer;
+	border-radius: 12px;
+	background: #14181d;
 }
 
 .content-card img {
 	width: 100%;
+	height: 260px;
+	object-fit: cover;
 	display: block;
+	transition: 0.3s;
 }
 
 .content-card p {
@@ -294,8 +296,11 @@
 }
 
 .content-card:hover {
+	transform: translateY(-6px);
+}
+
+.content-card:hover .poster img {
 	transform: scale(1.08);
-	box-shadow: 0 12px 30px rgba(0,0,0,0.6);
 }
 
 /* =========================================================
@@ -854,6 +859,13 @@
    POSTER
 ========================= */
 
+.poster img {
+	width: 100%;
+	aspect-ratio: 2 / 3;
+	object-fit: cover;
+	display: block;
+}
+
 .detail-poster img {
 	width: 320px;
 	border-radius: 12px;
@@ -1164,7 +1176,7 @@
 	border-radius: 12px;
 
 	padding: 25px;
-	margin-bottom: 30px;
+	margin-bottom: 60px;
 }
 
 
@@ -1173,13 +1185,39 @@
 ========================= */
 
 .member-info {
+	display: grid;
+	grid-template-columns: 160px 1fr;
+	gap: 40px;
+
+	padding: 30px;
+	background: #14181d;
+	border-radius: 12px;
+}
+
+.profile-area {
 	display: flex;
-	flex-direction: column;
-	gap: 16px;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+.profile-area img {
+	width: 110px;
+	height: 110px;
+	border-radius: 50%;
+	border: 2px solid #00d9b5;
+	object-fit: cover;
+}
+
+.member-detail {
+	display: grid;
+	grid-template-columns: 120px 1fr;
+	row-gap: 14px;
+	column-gap: 20px;
+	align-content: start;
 }
 
 .info-row {
-	display: flex;
+	display: contents;
 	align-items: center;
 
 	padding-bottom: 12px;
@@ -1187,14 +1225,20 @@
 }
 
 .label {
-	width: 100px;
-	color: #9aa4af;
-	font-weight: 600;
+	color: #888;
+	font-size: 13px;
 }
 
 .value {
-	flex: 1;
 	color: #fff;
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.hover-desc {
+	font-size: 12px;
+	color: #bbb;
+	line-height: 1.4;
 }
 
 
@@ -1203,30 +1247,29 @@
 ========================= */
 
 .mypage-btn-area {
-	display: flex;
-	gap: 12px;
+	grid-column: 1 / -1;
 
-	margin-top: 15px;
+	display: flex;
+	justify-content: flex-end;
+	gap: 10px;
+
+	margin-top: 10px;
 }
 
 .mypage-btn-area button {
-	padding: 12px 20px;
-
-	border: none;
+	padding: 10px 14px;
 	border-radius: 8px;
-
-	cursor: pointer;
-
+	border: 1px solid #00d9b5;
+	background: transparent;
+	color: #00d9b5;
 	font-weight: 600;
-
-	background: #00c896;
-	color: #fff;
-
-	transition: 0.2s ease;
+	cursor: pointer;
+	transition: 0.2s;
 }
 
 .mypage-btn-area button:hover {
-	transform: translateY(-2px);
+	background: #00d9b5;
+	color: #0b0f14;
 }
 
 
@@ -1251,6 +1294,17 @@
 	font-weight: 600;
 }
 
+.hover-overlay {
+	position: absolute;
+	inset: 0;
+	opacity: 0;
+	background: rgba(0,0,0,0.75);
+	transition: 0.3s;
+}
+
+.content-card:hover .hover-overlay {
+	opacity: 1;
+}
 
 /* =========================
    FAVORITE GRID
@@ -1268,26 +1322,20 @@
 	cursor: pointer;
 }
 
-.favorite-content-grid .content-card img {
+.content-card .poster img {
 	width: 100%;
-	height: 330px;
-
+	height: 260px; 
 	object-fit: cover;
-	border-radius: 10px;
-
-	transition: 0.3s ease;
+	display: block;
+	transition: transform 0.3s ease;
 }
 
 .favorite-content-grid .content-card:hover img {
-	transform: scale(1.03);
+	transform: scale(1.08);
 }
 
 .favorite-content-grid .content-card h3 {
-	margin-top: 10px;
-
-	font-size: 15px;
-	font-weight: 600;
-	text-align: center;
+	display: none;
 }
 
 
@@ -1531,24 +1579,28 @@
 }
 
 .ott-item {
-	padding: 15px;
+	padding: 8px 14px;
+	border-radius: 20px;
 
-	background: #0f1318;
+	border: 1px solid #2a2f36;
+	color: #aaa;
 
-	border: 1px solid #242c37;
-	border-radius: 8px;
-
+	font-size: 13px;
 	cursor: pointer;
 
-	display: flex;
-	align-items: center;
-	gap: 10px;
+	transition: 0.2s;
 }
 
 .ott-item:hover {
-	border-color: #00c896;
+	border-color: #00d9b5;
+	color: #00d9b5;
 }
 
+.ott-item.active {
+	background: #00d9b5;
+	color: #0b0f14;
+	border-color: #00d9b5;
+}
 
 /* =========================================================
    BUTTON AREA
@@ -1656,35 +1708,6 @@
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
 	gap: 25px;
-}
-
-.favorite-card {
-	background: #161b22;
-	border: 1px solid #242c37;
-	border-radius: 14px;
-	overflow: hidden;
-	transition: 0.3s;
-}
-
-.favorite-card:hover {
-	transform: translateY(-5px);
-	border-color: #00c896;
-}
-
-.favorite-card img {
-	width: 100%;
-	height: 320px;
-	object-fit: cover;
-	display: block;
-}
-
-.favorite-info {
-	padding: 15px;
-}
-
-.favorite-info h3 {
-	margin-bottom: 10px;
-	font-size: 17px;
 }
 
 .ott-badge {

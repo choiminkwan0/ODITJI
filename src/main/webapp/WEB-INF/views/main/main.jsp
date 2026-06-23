@@ -61,68 +61,202 @@
 	========================= -->
 	<section class="content-section">
 
-		<div class="section-header">
-			<h3>지금 많이 찾는 콘텐츠</h3>
-			<a href="${pageContext.request.contextPath}/content/list">더보기 &gt;</a>
+	<div class="section-header">
+		<h3>지금 많이 찾는 콘텐츠</h3>
+		<a href="${pageContext.request.contextPath}/content/list">더보기 &gt;</a>
+	</div>
+
+	<div class="slider-wrapper">
+
+		<button class="slider-btn left" type="button">‹</button>
+
+		<div class="content-slider" id="contentSlider">
+
+			<!-- ===== CARD ===== -->
+			<a href="${pageContext.request.contextPath}/content/detail" class="content-link">
+
+				<div class="content-card">
+
+					<div class="poster">
+						<img src="https://placehold.co/180x260" alt="포스터">
+					</div>
+
+					<div class="card-info">
+						<div class="title">콘텐츠 제목</div>
+					</div>
+
+					<div class="hover-overlay">
+						<div class="hover-desc">
+							간단 설명 영역 (줄거리 / 장르 / API 데이터)
+						</div>
+						<div class="meta">Netflix · 2024</div>
+					</div>
+
+				</div>
+
+			</a>
+
+			<!-- ===== CARD ===== -->
+			<a href="${pageContext.request.contextPath}/content/detail" class="content-link">
+				<div class="content-card">
+
+					<div class="poster">
+						<img src="https://placehold.co/180x260" alt="포스터">
+					</div>
+
+					<div class="card-info">
+						<div class="title">콘텐츠 제목</div>
+					</div>
+
+					<div class="hover-overlay">
+						<div class="hover-desc">
+							간단 설명 영역 (줄거리 / 장르 / API 데이터)
+						</div>
+						<div class="meta">Netflix · 2024</div>
+					</div>
+
+				</div>
+			</a>
+
+			<!-- ===== CARD ===== -->
+			<a href="${pageContext.request.contextPath}/content/detail" class="content-link">
+				<div class="content-card">
+
+					<div class="poster">
+						<img src="https://placehold.co/180x260" alt="포스터">
+					</div>
+
+					<div class="card-info">
+						<div class="title">콘텐츠 제목</div>
+					</div>
+
+					<div class="hover-overlay">
+						<div class="hover-desc">
+							간단 설명 영역 (줄거리 / 장르 / API 데이터)
+						</div>
+						<div class="meta">Netflix · 2024</div>
+					</div>
+
+				</div>
+			</a>
+
+			<!-- ===== CARD ===== -->
+			<a href="${pageContext.request.contextPath}/content/detail" class="content-link">
+				<div class="content-card">
+
+					<div class="poster">
+						<img src="https://placehold.co/180x260" alt="포스터">
+					</div>
+
+					<div class="card-info">
+						<div class="title">콘텐츠 제목</div>
+					</div>
+
+					<div class="hover-overlay">
+						<div class="hover-desc">
+							간단 설명 영역 (줄거리 / 장르 / API 데이터)
+						</div>
+						<div class="meta">Netflix · 2024</div>
+					</div>
+
+				</div>
+			</a>
+
+			<!-- ===== CARD ===== -->
+			<a href="${pageContext.request.contextPath}/content/detail" class="content-link">
+				<div class="content-card">
+
+					<div class="poster">
+						<img src="https://placehold.co/180x260" alt="포스터">
+					</div>
+
+					<div class="card-info">
+						<div class="title">콘텐츠 제목</div>
+					</div>
+
+					<div class="hover-overlay">
+						<div class="hover-desc">
+							간단 설명 영역 (줄거리 / 장르 / API 데이터)
+						</div>
+						<div class="meta">Netflix · 2024</div>
+					</div>
+
+				</div>
+			</a>
+
+			<!-- ===== CARD ===== -->
+			<a href="${pageContext.request.contextPath}/content/detail" class="content-link">
+				<div class="content-card">
+
+					<div class="poster">
+						<img src="https://placehold.co/180x260" alt="포스터">
+					</div>
+
+					<div class="card-info">
+						<div class="title">콘텐츠 제목</div>
+					</div>
+
+					<div class="hover-overlay">
+						<div class="hover-desc">
+							간단 설명 영역 (줄거리 / 장르 / API 데이터)
+						</div>
+						<div class="meta">Netflix · 2024</div>
+					</div>
+
+				</div>
+			</a>
+
+			<!-- ===== CARD ===== -->
+			<a href="${pageContext.request.contextPath}/content/detail" class="content-link">
+				<div class="content-card">
+
+					<div class="poster">
+						<img src="https://placehold.co/180x260" alt="포스터">
+					</div>
+
+					<div class="card-info">
+						<div class="title">콘텐츠 제목</div>
+					</div>
+
+					<div class="hover-overlay">
+						<div class="hover-desc">
+							간단 설명 영역 (줄거리 / 장르 / API 데이터)
+						</div>
+						<div class="meta">Netflix · 2024</div>
+					</div>
+
+				</div>
+			</a>
+
+			<!-- ===== CARD ===== -->
+			<a href="${pageContext.request.contextPath}/content/detail" class="content-link">
+				<div class="content-card">
+
+					<div class="poster">
+						<img src="https://placehold.co/180x260" alt="포스터">
+					</div>
+
+					<div class="card-info">
+						<div class="title">콘텐츠 제목</div>
+					</div>
+
+					<div class="hover-overlay">
+						<div class="hover-desc">
+							간단 설명 영역 (줄거리 / 장르 / API 데이터)
+						</div>
+						<div class="meta">Netflix · 2024</div>
+					</div>
+
+				</div>
+			</a>
+
 		</div>
 
-		<!-- slider wrapper (넷플릭스 구조) -->
-		<div class="slider-wrapper">
+		<button class="slider-btn right" type="button">›</button>
 
-			<button class="slider-btn left" type="button">‹</button>
+	</div>
 
-			<div class="content-slider" id="contentSlider">
-
-				<!-- ===== CONTENT CARD (DB 붙일 자리) ===== -->
-				<a href="${pageContext.request.contextPath}/content/detail" class="content-link">
-					<div class="content-card">
-						<img src="https://placehold.co/180x260" alt="콘텐츠">
-						<p>눈물의 여왕</p>
-					</div>
-				</a>
-
-				<a href="${pageContext.request.contextPath}/content/detail" class="content-link">
-					<div class="content-card">
-						<img src="https://placehold.co/180x260" alt="콘텐츠">
-						<p>선재 업고 튀어</p>
-					</div>
-				</a>
-
-				<a href="${pageContext.request.contextPath}/content/detail" class="content-link">
-					<div class="content-card">
-						<img src="https://placehold.co/180x260" alt="콘텐츠">
-						<p>파묘</p>
-					</div>
-				</a>
-
-				<a href="${pageContext.request.contextPath}/content/detail" class="content-link">
-					<div class="content-card">
-						<img src="https://placehold.co/180x260" alt="콘텐츠">
-						<p>범죄도시4</p>
-					</div>
-				</a>
-
-				<a href="${pageContext.request.contextPath}/content/detail" class="content-link">
-					<div class="content-card">
-						<img src="https://placehold.co/180x260" alt="콘텐츠">
-						<p>더 글로리</p>
-					</div>
-				</a>
-
-				<a href="${pageContext.request.contextPath}/content/detail" class="content-link">
-					<div class="content-card">
-						<img src="https://placehold.co/180x260" alt="콘텐츠">
-						<p>오징어 게임</p>
-					</div>
-				</a>
-
-			</div>
-
-			<button class="slider-btn right" type="button">›</button>
-
-		</div>
-
-	</section>
+</section>
 
 </main>
 
