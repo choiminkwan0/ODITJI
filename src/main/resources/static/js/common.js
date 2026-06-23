@@ -63,19 +63,29 @@ const Member = {
 
     bindFileInput() {
 
-        const fileInput = document.getElementById("profileImage");
-        const fileName = document.querySelector(".file-name");
+        const fileInputs = document.querySelectorAll(
+            "#profileImage, #updateProfileImage"
+        );
 
-        if (!fileInput || !fileName) return;
+        fileInputs.forEach(fileInput => {
 
-        fileInput.addEventListener("change", () => {
+            fileInput.addEventListener("change", () => {
 
-            if (fileInput.files.length > 0) {
-                fileName.textContent = fileInput.files[0].name;
-            } else {
-                fileName.textContent = "선택된 파일 없음";
-            }
+                const fileName = fileInput.parentElement
+                    .querySelector(".file-name");
+
+                if (!fileName) return;
+
+                if (fileInput.files.length > 0) {
+                    fileName.textContent = fileInput.files[0].name;
+                } else {
+                    fileName.textContent = "선택된 파일 없음";
+                }
+
+            });
+
         });
+
     },
 
     checkId() {
@@ -172,6 +182,63 @@ const Auth = {
     }
 };
 
+/* =========================================================
+   MODAL MODULE
+========================================================= */
+
+const Modal = {
+
+    init() {
+
+        const memberBtn = document.getElementById("memberUpdateBtn");
+        const ottBtn = document.getElementById("ottUpdateBtn");
+
+        const memberModal = document.getElementById("memberModal");
+        const ottModal = document.getElementById("ottModal");
+
+        if (memberBtn && memberModal) {
+
+            memberBtn.addEventListener("click", () => {
+                memberModal.classList.add("show");
+            });
+
+        }
+
+        if (ottBtn && ottModal) {
+
+            ottBtn.addEventListener("click", () => {
+                ottModal.classList.add("show");
+            });
+
+        }
+
+        document.querySelectorAll(".close-modal")
+            .forEach(btn => {
+
+                btn.addEventListener("click", () => {
+
+                    btn.closest(".modal")
+                       .classList.remove("show");
+
+                });
+
+            });
+
+        document.querySelectorAll(".modal")
+            .forEach(modal => {
+
+                modal.addEventListener("click", e => {
+
+                    if (e.target === modal) {
+                        modal.classList.remove("show");
+                    }
+
+                });
+
+            });
+
+    }
+};
 
 /* =========================================================
    SLIDER MODULE (NETFLIX STYLE)
@@ -262,6 +329,8 @@ document.addEventListener("DOMContentLoaded", () => {
     WishList.init();
 
     Member.init();
+
+    Modal.init();
 
     Slider.init({
         slider: "#contentSlider",
