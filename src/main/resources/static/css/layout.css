@@ -313,6 +313,10 @@
 
 /* ==========================================
    SIDEBAR LIST BASE (COMMON)
+   ℹ️ 참고: sidebar.jsp 하나에서 sidebarType 값에 따라
+   .recommend-list(유저) 또는 .admin-menu(관리자) 중 하나만
+   렌더링됨 (동시에 같이 안 나옴). 그래서 선택자를 같이 묶어서
+   재사용하는 게 의도된 설계라 그대로 둠.
 ========================================== */
 
 .recommend-list,
@@ -387,32 +391,6 @@
 	background: rgba(255, 255, 255, 0.08);
 	border-color: rgba(255, 255, 255, 0.2);
 }
-
-/* =========================
-   SECTION HEADER
-========================= */
-
-.section-header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin-bottom: 20px;
-}
-
-.section-header h3 {
-	font-size: 20px;
-}
-
-.section-header a {
-	color: #aaa;
-	text-decoration: none;
-	transition: 0.2s;
-}
-
-.section-header a:hover {
-	color: #fff;
-}
-
 
 /* =========================
    LAYOUT STRUCTURE

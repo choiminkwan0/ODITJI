@@ -195,6 +195,9 @@
 }
 
 /* EDIT */
+/* ℹ️ 참고: main.css(favoriteList)에도 같은 이름(.edit-btn)이
+   있지만, admin 페이지는 main.css를 같이 불러오지 않아서 실제
+   충돌은 없음. */
 .edit-btn {
 	@extend .btn;
 	background: var(--admin-blue);
